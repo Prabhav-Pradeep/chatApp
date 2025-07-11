@@ -2,119 +2,99 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 body {
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    color: #f1f5f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #f1f5f9;
 }
 
 main {
-    width: 100%;
-    max-width: 700px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    height: 100vh;
     padding: 1rem;
-    border-radius: 16px;
-    background: rgba(17, 24, 39, 0.7);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-flow: column;
 }
 
 form {
-    display: flex;
-    gap: 0.5rem;
     width: 100%;
+    margin: auto;
+    max-width: 600px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: .25rem;
+  background: rgba(255, 255, 255, 0.1);
+  
+  color: #fff;
 }
 
-form input,
-form button {
-    padding: 0.7rem 1rem;
-    border-radius: 8px;
-    border: none;
-    outline: none;
-    transition: all 0.3s ease;
+input {
+    flex-grow: 1;
+    max-width: calc(80% - .25rem);
 }
 
-.form-join input {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.1);
-    color: #f1f5f9;
+button {
+    width: 20%;
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #fff;
 }
 
-.form-join button,
-.form-msg button {
-    background: linear-gradient(135deg, #38bdf8, #0ea5e9);
-    color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.form-join button:hover,
-.form-msg button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(56, 189, 248, 0.5);
-}
-
-.form-msg input {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.1);
-    color: #f1f5f9;
-}
-
-.form-msg input:focus,
-.form-join input:focus {
-    border: 1px solid #38bdf8;
-    box-shadow: 0 0 8px #38bdf8;
+input,
+button {
+    border-radius: 10px;
+    padding: .5rem;
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #fff;
 }
 
 .chat-display {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-    max-height: 400px;
-    padding: 0.5rem;
-    background: rgba(255, 255, 255, 0.05);
+    background-color: #333;
+    list-style-type: none;
+    width: 100%;
+    max-width: 600px;
     border-radius: 10px;
+    margin: 1rem auto;
+    padding: 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+    overflow: auto;
+    flex-grow: 1;
+     background: rgba(255, 255, 255, 0.05);
 }
 
 .post {
-    background: #f1f5f9;
+     background: #f1f5f9;
     border-radius: 10px;
-    margin: 0.5rem 0;
+    padding: 0 0 .25rem;
+    margin: .5rem;
     overflow: hidden;
-    padding: 0;
-    transition: background-color 0.3s ease;
+    flex-shrink: 0;
 }
-
-.post:hover {
+.post:hover{
     background: #e2e8f0;
 }
-
 .post--left {
+    width: 60%;
     align-self: flex-start;
-    max-width: 75%;
 }
 
 .post--right {
+    width: 60%;
     align-self: flex-end;
-    max-width: 75%;
 }
 
 .post__header {
+    padding: .25rem .5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem;
-    color: #f1f5f9;
-    font-weight: 600;
+    gap: .5rem;
+     color: #f1f5f9;
 }
 
 .post__header--user {
@@ -125,23 +105,31 @@ form button {
     background: linear-gradient(135deg, #a855f7, #9333ea);
 }
 
+.post__header--name {
+    font-weight: bold;
+}
+
+.post__header--time {
+    font-size: .8rem;
+}
+
 .post__text {
-    padding: 0.5rem;
-    color: #1e293b;
+    margin-top: 5px;
+    color: #333;
+    padding: .25rem .5rem;
 }
 
 .user-list,
 .room-list,
 .activity {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 0.75rem;
-    border-radius: 8px;
     width: 100%;
-    font-size: 0.95rem;
-    transition: background 0.3s ease;
+    min-height: 2.65rem;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: .75rem .25rem;
+    
 }
 
 .activity {
     font-style: italic;
-    opacity: 0.8;
 }

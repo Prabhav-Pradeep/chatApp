@@ -31,7 +31,7 @@ const io = new Server(expressServer, {
     }
 })
 
-io.on("connection", (socket) => {
+io.on('connection', (socket) => {
   console.log(`User ${socket.id} connected`);
 
   // Upon connection -> only to User
@@ -55,8 +55,8 @@ io.on("connection", (socket) => {
     //join room
     socket.join(user.room)
 
-    //TO user who joined
-    socket.emit('message', buildMsg(ADMIN, `Yu have joined the ${user.room} chat room`))
+    //To user who joined
+    socket.emit('message', buildMsg(ADMIN, `You have joined the ${user.room} chat room`))
 
     //To everyone else
       socket.broadcast.to(user.room).emit('message', buildMsg(ADMIN, `${user.name} has joined the room`));
@@ -64,11 +64,11 @@ io.on("connection", (socket) => {
     io.to(user.room).emit('userList', {
       users: getUserInRoom(user.room)
     })
-
+//Problem !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //Update Rooms for everyone
     io.emit('roomList', {
       rooms: getAllActiveRooms()
-    } )
+    } )//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   })
 
     // When User disconnects - to all others
@@ -90,8 +90,7 @@ io.on("connection", (socket) => {
   })
 
 
-  //Upon connection - to all users except the user
-  socket.broadcast.emit('message',`User ${socket.id.substring(0,5)} connected` )
+
 
   // Listening for a message event
   socket.on("message", ({ name, text }) => {
@@ -118,8 +117,8 @@ io.on("connection", (socket) => {
       text,
       time : new Intl.DateTimeFormat('default', {
         hour: 'numeric',
-        minutes: 'numeric',
-        seconds: 'numeric'
+        minute: 'numeric',
+        second: 'numeric'
       }). format(new Date)
     }
   }
@@ -129,14 +128,15 @@ function activateUser(id, name, room) {
   UserState.setUsers([
     ...UserState.users.filter(user => user.id !== id),
     user 
-  ])
+  ]
+  )
   return user
 }
 
 function userLeavesApp(id) {
-  UserState.setUsers([
+  UserState.setUsers(
     UserState.users.filter(user => user.id !== id)
-  ])
+  )
 }
 
 function getUser(id) {

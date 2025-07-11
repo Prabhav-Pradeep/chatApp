@@ -63,9 +63,7 @@ socket.on("message", (data)=>{
     chatDisplay.scrollTop = chatDisplay.scrollHeight
 })
 
-msgInput.addEventListener('keypress', ()=> {
-    socket.emit('activity', socket.id.substring(0,5))
-})
+
 
 let activityTimer
 socket.on('activity', (name)=>{
@@ -100,9 +98,9 @@ function showUsers(users) {
 function showRooms(rooms) {
     roomList.textContent = ''
     if(rooms) {
-        roomList.innerHTML = `<em> Active Rooms: ${chatRoom.value}:</em>`
+        roomList.innerHTML = `<em> Active Rooms:</em>`
         rooms.forEach((room, i)=>{
-            usersList.textContent += ` ${room}`
+            roomList.textContent += ` ${room}`
             if (rooms.length > 1&& i!== rooms.length -1){
                 roomList.textContent += ","
             }
