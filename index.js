@@ -24,12 +24,17 @@ const UserState = {
 
 }
 
+const allowedOrigins = [
+    "http://localhost:5500",
+    "http://127.0.0.1:5500",
+    "https://chatdrone.onrender.com"
+];
+
 const io = new Server(expressServer, {
     cors: {
-        origin: process.env.NODE_ENV === "https://chatdrone.onrender.com" ? false : 
-        ["http://localhost:5500","http://127.0.0.1:5500,https://chatdrone.onrender.com"]
+        origin: allowedOrigins
     }
-})
+});
 
 io.on('connection', (socket) => {
   console.log(`User ${socket.id} connected`);
