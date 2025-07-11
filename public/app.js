@@ -1,4 +1,6 @@
-const socket = io('ws://localhost:3500');
+const socket = io(
+  location.hostname === "localhost" ? "http://localhost:3500" : "https://chatdrone.onrender.com"
+);
 const msgInput = document.querySelector('#message');
 const nameInput = document.querySelector('#name');
 const chatRoom = document.querySelector('#room');
