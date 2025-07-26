@@ -43,6 +43,7 @@ button {
   width: 20%;
   background: linear-gradient(135deg, #fbbf24, #f59e0b); /* amber gradient */
   color: #1c1917;
+  cursor: pointer;
 }
 
 input,
@@ -51,6 +52,7 @@ button {
   padding: .5rem;
   background: linear-gradient(135deg, #fbbf24, #f59e0b);
   color: #1c1917;
+  cursor: pointer;
 }
 
 .chat-display {
