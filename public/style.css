@@ -34,6 +34,10 @@ input {
   flex-grow: 1;
   max-width: calc(80% - .25rem);
 }
+input::placeholder {
+  color: #78350f; 
+  opacity: 0.8;   
+}
 
 button {
   width: 20%;
